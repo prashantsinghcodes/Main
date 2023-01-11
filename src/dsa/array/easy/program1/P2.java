@@ -1,43 +1,39 @@
 package dsa.array.easy.program1;
 
 /*
-Find the largest three elements of an integer array
+Find the largest three elements of a string array
  */
 
 import java.util.*;
 
-public class P1 {
-
+public class P2 {
     public static void main(String[] args) {
-        int[] arr = {3, 1, 7, 5, 6, 8};
+        String[] arr = {"Ankit", "Prabhat", "Rahul", "Shankar"};
         int n = arr.length;
         method3(arr, n);
     }
 
     /*
-    using java inbuilt library
-    Time complexity - O(nlog)
-    Space compexity - O(1) - inplace method
+    using java inbuilt function
+    Time complexity - O(n * log n)
+    Space complexity - O(1) - Inplace algorithm
      */
-    private static void method1() {
-        int[] arr = {3, 1, 7, 5, 6, 8};
+    private static void method1(String[] arr, int n) {
         Arrays.sort(arr);
-        int n = arr.length;
         for(int i = n-1; i >= n-3; i--)
             System.out.print(arr[i] + " ");
     }
 
-
     /*
-    by not using mergesort and not by any inbuilt java library
+    using mergesort
     Time complexity - O(n * log n)
-    Space complexity - O(1) - inplace algorithm
+    Space complexity - O(1) - Inplace algorithm
      */
-    private static void method2(int[] arr, int left, int right) {
+    private static void method2(String[] arr, int left, int right) {
         mergeSort(arr, left, right);
     }
 
-    private static void mergeSort(int[] arr, int left, int right) {
+    private static void mergeSort(String[] arr, int left, int right) {
         if(left < right) {
             int mid = left + (right-left) / 2;
             mergeSort(arr, left, mid);
@@ -46,11 +42,11 @@ public class P1 {
         }
     }
 
-    private static void merge(int[] arr, int left, int mid, int right) {
+    private static void merge(String[] arr, int left, int mid, int right) {
         int n1 = (mid - left) + 1;
         int n2 = right - mid;
-        int[] L = new int[n1];
-        int[] R = new int[n2];
+        String[] L = new String[n1];
+        String[] R = new String[n2];
         for(int i = 0; i < n1; i++) {
             L[i] = arr[left + i];
         }
@@ -61,7 +57,7 @@ public class P1 {
         int i = 0, j = 0;
         int k = left;
         while(i < n1 && j < n2) {
-            if(R[j] >= L[i]) {
+            if(R[j].compareTo(L[i]) >= 0) {
                 arr[k] = L[i++];
             } else {
                 arr[k] = R[j++];
@@ -80,12 +76,9 @@ public class P1 {
     Time complexity - O(n * log n)
     Space complexity - O(n) - use of auxiliary space
      */
-    private static void method3(int[] arr, int n) {
-        List<Integer> list = new ArrayList<>();
-        for(Integer x : arr) {
-            list.add(x);
-        }
-        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
+    private static void method3(String[] arr, int n) {
+        List<String> list = Arrays.asList(arr);
+        PriorityQueue<String> pq = new PriorityQueue<String>(Collections.reverseOrder());
         pq.addAll(list);
         for(int i = 0; i < 3; i++){
             System.out.print(pq.remove() + " ");
