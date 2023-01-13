@@ -2,6 +2,10 @@ package dsa.array.easy.program4;
 
 import java.util.Arrays;
 
+/*
+Rearrange elements of an array in such a way that
+even positioned elements are greater than odd-positioned elements.
+ */
 public class P1 {
     public static void main(String[] args) {
         int[] arr = {3, 5, 6, 2, 8, 9};
