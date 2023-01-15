@@ -12,7 +12,7 @@ public class P2 {
     public static void main(String[] args) {
         int[] arr1 = {1, 2, 5, 4, 0};
         int[] arr2 = {2, 4, 5, 0, 1};
-        if(areEqualByHashing(arr1, arr2))
+        if(areEqualByMap(arr1, arr2))
             System.out.print("Yes");
         else
             System.out.print("No");
@@ -37,6 +37,7 @@ public class P2 {
     }
 
     /*
+    using hashmap
     Time complexity - O(n)
     Space complexity - O(1)
      */
@@ -63,5 +64,29 @@ public class P2 {
             hashMap.put(arr2[i], counter);
         }
         return true;
+    }
+
+    /*
+    using map
+    Time complexity - O(n)
+    Space complexity - O(n)
+     */
+    private static boolean areEqualByMap(int[] arr1, int[] arr2) {
+        int n = arr1.length, m = arr2.length;
+        HashMap<Integer, Integer> umap = new HashMap<>();
+        for(int i = 0; i < n; i++) {
+            umap.put(arr1[i], umap.getOrDefault(arr1[i], 0) + 1);
+        }
+
+        for(int i = 0; i < m; i++) {
+            if(umap.containsKey(arr2[i])) {
+                umap.put(arr2[i], umap.get(arr2[i]) - 1);
+                if(umap.get(arr2[i]) == 0)
+                    umap.remove(arr2[i]);
+            }
+        }
+        if(umap.size() == 0)
+            return true;
+        return false;
     }
 }
