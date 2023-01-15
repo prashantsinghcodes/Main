@@ -36,6 +36,10 @@ public class P2 {
         return true;
     }
 
+    /*
+    Time complexity - O(n)
+    Space complexity - O(1)
+     */
     private static boolean areEqualByHashing(int[] arr1, int[] arr2) {
         int n = arr1.length, m = arr2.length;
         Map<Integer, Integer> hashMap = new HashMap<>();
