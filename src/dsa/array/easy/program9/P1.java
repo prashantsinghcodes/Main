@@ -1,7 +1,7 @@
 package dsa.array.easy.program9;
 
 /*
-sort an array containing numbersfrom 1 to n
+sort an array containing numbers from 1 to n
 Time complexity - O(n)
 Space complexity - O(1) - Inplace algorithm
  */
