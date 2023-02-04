@@ -1,0 +1,26 @@
+Types of linked lists :
+
+1. Singly ll
+2. doubly ll
+3. circular ll
+4. circular doubly ll
+
+1. Singly ll :
+    operations :
+    -> create node with data and next
+    -> create linkedlist with head
+    -> insertAtHead(int d)
+    -> insertAtTail(int d)
+    -> insertAtPosition(int position, int d)
+    -> print() or traverse singly linkedlist
+    -> deleteAtPosition(int position)
+2. Doubly ll :
+    operations :
+    -> create node with prev, data and next
+    -> create DoublyLinkedList with head
+    -> insertAtHead(int d)
+    -> insertAtTail(int d)
+    -> insertAtPosition(int position, int d)
+    -> getLength() of the Doubly LL
+    -> print() or traverse the doubly linkedlist
+    -> deleteAtPosition(int position)
