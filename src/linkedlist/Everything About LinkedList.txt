@@ -24,3 +24,12 @@ Types of linked lists :
     -> getLength() of the Doubly LL
     -> print() or traverse the doubly linkedlist
     -> deleteAtPosition(int position)
+3. Circular Linked List :
+    opertaions :
+     -> create circular linked list with tail pointing to any node(first in this case)
+        and last node pointing to first node
+     -> insertNode(int element, int value) - insert a node with value after element
+     -> traversal
+     -> deleteNode(int value) - search value and delete the node
+
+

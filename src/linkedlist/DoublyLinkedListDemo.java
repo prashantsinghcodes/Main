@@ -16,5 +16,8 @@ public class DoublyLinkedListDemo {
         dll.print();
         dll.insertAtPosition(5, 75);
         dll.print();
+        dll.deleteNode(5);
+        dll.print();
+        System.out.print("tail : " + dll.tail.data);
     }
 }

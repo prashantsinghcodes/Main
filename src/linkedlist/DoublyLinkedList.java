@@ -13,6 +13,31 @@ public class DoublyLinkedList {
         System.out.print("\n");
     }
 
+    public void deleteNode(int position) {
+        if(position == 1) {
+            DoublyNode node = head;
+            node.next.prev = null;
+            head = node.next;
+            node.next = null;
+        }
+        int count = 1;
+        DoublyNode current = head, prev = null;
+        while(count < position) {
+            prev = current;
+            current = current.next;
+            count++;
+        }
+        current.prev = null;
+        prev.next = current.next;
+        if(current.next == null) {
+            tail = prev;
+        }
+        current.next = null;
+        if(position == getLength()) {
+            tail = prev;
+        }
+    }
+
     public void insertAtHead(int d) {
         DoublyNode doublyNode = new DoublyNode(d);
         if(head == null) {
